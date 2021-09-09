@@ -127,4 +127,40 @@ switch (a) {
             }
         }
         alert(cycle(a, n));
+        // Урок 3
 
+        // Задание 2
+        var goods = [
+            {
+                title: "Товар 1",
+                price: 100,
+                count: 3,
+            },
+            {
+                title: "Товар 2",
+                price: 200,
+                count: 2,
+            },
+            {
+                title: "Товар 3",
+                price: 300,
+                count: 5,
+            },
+        ];
+        for (var sum of goods) {
+            sum = sum.count * sum.price;
+            alert(sum);
+        }
+        // Задание 4
+        var n = 0;
+        for (i = 0; i < 10; i++) {
+            console.log(n);
+            n++;
+        }
+
+        // Задание 5
+        var n = "x";
+        for (i = 0; i < 20; i++) {
+            console.log(n);
+            n = n + "x";
+        }
