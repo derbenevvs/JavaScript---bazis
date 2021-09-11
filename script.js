@@ -128,7 +128,12 @@ switch (a) {
         }
         alert(cycle(a, n));
         // Урок 3
-
+        // Задание 1
+        var n = 0;
+        for (i = 0; i < 101; i++) {
+            document.write(n + '<br>');
+            n = ++n;
+        }
         // Задание 2
         var goods = [
             {
