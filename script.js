@@ -129,10 +129,23 @@ switch (a) {
         alert(cycle(a, n));
         // Урок 3
         // Задание 1
-        var n = 0;
-        for (i = 0; i < 101; i++) {
-            document.write(n + '<br>');
-            n = ++n;
+        var n = 2;
+        while (n <= 100) {
+            if (examination(n)) {
+                console.log(n);
+            }
+            n++;
+        }
+
+        function examination(n) {
+            var i = 2;
+            while (i < n) {
+                if (n % i == 0) {
+                    return false;
+                }
+                i++;
+            }
+            return true;
         }
         // Задание 2
         var goods = [
@@ -168,4 +181,66 @@ switch (a) {
         for (i = 0; i < 20; i++) {
             console.log(n);
             n = n + "x";
+        }
+        // Урок 4
+        // Задание 1
+        var n = +prompt('ВВедите 3-х значное число!');
+
+        if (n > 999) {
+            +prompt('Ошибка! Прошу ввести повторно 3-х значное число');
+        }
+        var obj = {
+        };
+        function f(num) {
+            obj.hundreds = num[0];
+            obj.dozens = num[1];
+            obj.units = num[2];
+        }
+        f(n);
+        console.log(obj);
+
+        // Задание 3*
+        var questions = [
+            {
+                question1: "Назовите столицу Венгрии?",
+                variant1: "Лодон",
+                variant2: "Москва",
+                variant3: "Будапешт",
+                variant4: "Прага",
+                answer: 3
+            },
+            {
+                question1: "Назовите столицу Нидерландов?",
+                variant1: "Амстердам",
+                variant2: "Стокгольм",
+                variant3: "Будапешт",
+                variant4: "Лиссабон",
+                answer: 1
+            }
+        ];
+
+        function questionAsk(a) {
+            var variantPlayer = +prompt(questions[a].question1 + "\n" + "1. " + questions[a].variant1 + "\n" + "2. " + questions[a].variant2 + "\n" + "3. " + questions[a].variant3 + "\n" + "4. " + questions[a].variant4)
+            examination(variantPlayer);
+            return variantPlayer;
+        }
+
+        var n = 0;
+        for (i = 0; i < 1; i++) { //Добрый день! В данном месте у меня возникли проблемы. код не работает.
+            questionAsk(i);
+            if (variantPlayer == questions[n].answer) {
+                alert('Ответ верный');
+                n++;
+            } else {
+                alert("Ответ не верный! Попробуйте еще раз!");
+                break;
+            }
+        }
+
+        function examination(a) {
+            if (a <= 0 || a > 4) {
+                alert('Вы ввели недопустимый символ');
+                return false;
+            }
+            return true;
         }
