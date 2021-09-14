@@ -17,20 +17,21 @@
             answer: 1
         }
     ];
-
+    var variantPlayer;
     function questionAsk(a) {
-        var variantPlayer = +prompt(questions[a].question1 + "\n" + "1. " + questions[a].variant1 + "\n" + "2. " + questions[a].variant2 + "\n" + "3. " + questions[a].variant3 + "\n" + "4. " + questions[a].variant4)
+        variantPlayer = +prompt(questions[a].question1 + "\n" + "1. " + questions[a].variant1 + "\n" + "2. " + questions[a].variant2 + "\n" + "3. " + questions[a].variant3 + "\n" + "4. " + questions[a].variant4)
         examination(variantPlayer);
         return variantPlayer;
     }
+    console.log(variantPlayer);
+
 
     var n = 0;
-    for (i = 0; i < 1; i++) {
+    for (i = 0; i <= 1; i++) {
         questionAsk(i);
         if (variantPlayer == questions[n].answer) {
             alert('Ответ верный');
             n++;
-
         } else {
             alert("Ответ не верный! Попробуйте еще раз!");
             break;
