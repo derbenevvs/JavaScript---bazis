@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 
 </head>
 
@@ -29,12 +28,12 @@
             img.src = "min/" + i + ".jpg";
             img.alt = i;
             console.log(img);
-            mas[i - 1] = img;
+            mas.push(img);
         };
+        console.log(mas);
         document.getElementById(45).append(mas[0]);
         function left() {
 
-            document.getElementById(45).append(mas[0]);
             if (mas[0]) {
                 document.getElementById(45).innerHTML = "";
                 document.getElementById(45).append(mas[2]);
@@ -44,6 +43,19 @@
             } else if (mas[2]) {
                 document.getElementById(45).innerHTML = "";
                 document.getElementById(45).append(mas[1]);
+            }
+        };
+        function right() {
+
+            if (mas[0]) {
+                document.getElementById(45).innerHTML = "";
+                document.getElementById(45).append(mas[1]);
+            } else if (mas[1]) {
+                document.getElementById(45).innerHTML = "";
+                document.getElementById(45).append(mas[2]);
+            } else if (mas[2]) {
+                document.getElementById(45).innerHTML = "";
+                document.getElementById(45).append(mas[0]);
             }
         };
 
