@@ -69,7 +69,7 @@ function startGame() {
 
     snake_timer = setInterval(move, SNAKE_SPEED);//каждые 200мс запускаем функцию move
     setTimeout(createFood, 5000);
-    setTimeout(bomb, 3000);
+    setInterval(bomb, 3000);
 }
 
 /**
@@ -122,11 +122,12 @@ function move() {
         new_unit = document.getElementsByClassName('cell-' + (coord_y + 1) + '-' + (coord_x))[0];
     }
 
+
     // Проверки
     // 1) new_unit не часть змейки
     // 2) Змейка не ушла за границу поля
     //console.log(new_unit);
-    if (!isSnakeUnit(new_unit) && new_unit !== undefined) {
+    if (!isSnakeUnit(new_unit) && new_unit !== undefined && !haveBomb(new_unit)) {
         // Добавление новой части змейки
         new_unit.setAttribute('class', new_unit.getAttribute('class') + ' snake-unit');
         snake.push(new_unit);
@@ -140,8 +141,10 @@ function move() {
             // удаляем хвост
             removed.setAttribute('class', classes[0] + ' ' + classes[1]);
         }
-    }
-    else {
+        // else if (bomb(new_unit)) {
+        //     finishTheGame();
+        // }
+    } else {
         finishTheGame();
     }
 }
@@ -214,8 +217,6 @@ function haveBomb(unit) {
     if (unit_classes.includes('bomb-unit')) {
         check = true;
         bomb();
-        // score++;
-
     }
     return check;
 }
