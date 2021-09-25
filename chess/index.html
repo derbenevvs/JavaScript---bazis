@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <div></div>
+    <script>
+        var chessTable = document.createElement('table'), tr, td;
+        var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h"];
+        var figuresWhite = ["&#9817;", "&#9812;", "&#9813;", "&#9814;", "&#9815;", "&#9816;"];
+        var figuresBlack = ["&#9823;", "&#9818;", "&#9819;", "&#9820;", "&#9821;", "&#9822;"];
+
+        function insertWhite() {
+            if (i == 3 && j > 1 && j < 10) {
+                td.innerHTML = "<h2>" + figuresWhite[0] + "</h2>";
+            } else if (i == 2 && j == 2 || i == 2 && j == 9) {
+                td.innerHTML = "<h2>" + figuresWhite[3] + "</h2>";
+            } else if (i == 2 && j == 3 || i == 2 && j == 8) {
+                td.innerHTML = "<h2>" + figuresWhite[5] + "</h2>";
+            } else if (i == 2 && j == 4 || i == 2 && j == 7) {
+                td.innerHTML = "<h2>" + figuresWhite[4] + "</h2>";
+            } else if (i == 2 && j == 5) {
+                td.innerHTML = "<h2>" + figuresWhite[1] + "</h2>";
+            } else if (i == 2 && j == 6) {
+                td.innerHTML = "<h2>" + figuresWhite[2] + "</h2>";
+            }
+        };
+        function insertBlack() {
+            if (i == 8 && j > 1 && j < 10) {
+                td.innerHTML = "<h2>" + figuresBlack[0] + "</h2>";
+            } else if (i == 9 && j == 2 || i == 9 && j == 9) {
+                td.innerHTML = "<h2>" + figuresBlack[3] + "</h2>";
+            } else if (i == 9 && j == 3 || i == 9 && j == 8) {
+                td.innerHTML = "<h2>" + figuresBlack[5] + "</h2>";
+            } else if (i == 9 && j == 4 || i == 9 && j == 7) {
+                td.innerHTML = "<h2>" + figuresBlack[4] + "</h2>";
+            } else if (i == 9 && j == 5) {
+                td.innerHTML = "<h2>" + figuresBlack[1] + "</h2>";
+            } else if (i == 9 && j == 6) {
+                td.innerHTML = "<h2>" + figuresBlack[2] + "</h2>";
+            }
+        };
+        for (var i = 1; i <= 10; i++) {
+            tr = document.createElement('tr');
+            chessTable.append(tr);
+            for (var j = 1; j <= 10; j++) {
+                td = document.createElement('td');
+                tr.append(td);
+                for (var n = 1; n < 2; n++) {
+                    insertWhite();
+                    insertBlack();
+                };
+
+                if (i != 1 && i != 10 && j != 1 && j != 10) {
+                    if (j % 2 == 0 && i % 2 != 0 || j % 2 !== 0 && i % 2 == 0) {
+                        td.style.backgroundColor = "brown";
+                    }
+                } else if (i == 1 && j > 1 && j < 10 || i == 10 && j > 1 && j < 10) {
+                    td.innerHTML = "<h2>" + alphabet[j - 2] + "</h2>";
+                } else if (j == 1 && i > 1 && i < 10 || j == 10 && i > 1 && i < 10) {
+                    td.innerHTML = "<h2>" + (i - 1) + "</h2>";
+                }
+            }
+        }
+        document.querySelector("div").append(chessTable);
+
+
+    </script>
+</body>
+
+</html>

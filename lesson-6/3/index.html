@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="header">
+
+    </div>
+
+    <div class="contener">
+        <button onclick="left()">Влево</button>
+        <div id="45" class="contener_cintent"></div>
+        <button onclick="right()">Вправо</button>
+    </div>
+    <script>
+        var mas = [];
+        for (var i = 1; i < 4; i++) {
+            var img = document.createElement("img");
+            img.src = "min/" + i + ".jpg";
+            img.alt = i;
+            console.log(img);
+            mas.push(img);
+        };
+        console.log(mas);
+        document.getElementById(45).append(mas[0]);
+        function left() {
+
+            if (mas[0]) {
+                document.getElementById(45).innerHTML = "";
+                document.getElementById(45).append(mas[2]);
+            } else if (mas[1]) {
+                document.getElementById(45).innerHTML = "";
+                document.getElementById(45).append(mas[0]);
+            } else if (mas[2]) {
+                document.getElementById(45).innerHTML = "";
+                document.getElementById(45).append(mas[1]);
+            }
+        };
+        function right() {
+
+            if (mas[0]) {
+                document.getElementById(45).innerHTML = "";
+                document.getElementById(45).append(mas[1]);
+            } else if (mas[1]) {
+                document.getElementById(45).innerHTML = "";
+                document.getElementById(45).append(mas[2]);
+            } else if (mas[2]) {
+                document.getElementById(45).innerHTML = "";
+                document.getElementById(45).append(mas[0]);
+            }
+        };
+
+
+    </script>
+</body>
+
+</html>
