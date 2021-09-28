@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="content">
+            <div id="b1" class="blok">
+                <img src="min/1.jpg" alt="1">
+            </div>
+            <div id="b2" class="blok">
+                <img src="min/2.jpg" alt="2">
+            </div>
+            <div id="b3" class="blok">
+                <img src="min/3.jpg" alt="3">
+            </div>
+        </div>
+
+    </div>
+    <div class="contener">
+        <div id="45" class="contener_cintent"></div>
+    </div>
+    <script>
+
+        var links = document.querySelectorAll("img");
+        for (var link of links) {
+            link.onclick = f;
+        }
+        function f() {
+            document.getElementById(45).innerHTML = "";
+            var img = document.createElement("img");
+            img.src = this.src;
+            document.getElementById(45).append(img);
+        };
+
+    </script>
+</body>
+
+</html>
